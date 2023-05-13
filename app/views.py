@@ -38,11 +38,11 @@ def registration(request):
             NSPO=PFD.save(commit=False)
             NSPO.Username=NSUO
             NSPO.save()
-            # send_mail('Registration',
-            #           'Succesfully Registration is done',
-            #           'deepikagandham5@gmail.com',
-            #           [NSUO.email],
-            #           fail_silently=True )
+            send_mail('Registration',
+                    'Succesfully Registration is done',
+                    'deepikagandham5@gmail.com',
+                    [NSUO.email],
+                    fail_silently=True )
 
             return HttpResponse('Registration is done')
         else:
