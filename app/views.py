@@ -88,20 +88,20 @@ def change_password(request):
     return render(request,'change_password.html')
 
 
-# def f_w(request):
-#     if request.method=='POST':
-#         un=request.POST['un']
-#         pw=request.POST['pw']
+def f_w(request):
+    if request.method=='POST':
+        un=request.POST['un']
+        pw=request.POST['pw']
 
-#         LUO=User.objects.filters(username=un)
-#         if LUO:
-#             UO=LUO[0]
-#             UO.set_password[pw]
-#             UO.save()
-#             return HttpResponse('password reset is done')
-#         else:
-#             return HttpResponse('username is not available in DB')
-#     return render(request,'f_w.html')
+        LUO=User.objects.filters(username=un)
+        if LUO:
+            UO=LUO[0]
+            UO.set_password[pw]
+            UO.save()
+            return HttpResponse('password reset is done')
+        else:
+            return HttpResponse('username is not available in DB')
+    return render(request,'f_w.html')
 
 
 
