@@ -48,25 +48,25 @@ def registration(request):
         else:
             return HttpResponse('Not Valid')
     return render(request,'registration.html',d)
-# def user_login(request):
+def user_login(request):
 
-#     if request.method=='POST':
-#         username=request.POST['username']
-#         password=request.POST['password']
+    if request.method=='POST':
+        username=request.POST['username']
+        password=request.POST['password']
 
-#         AUO=authenticate(username=username,password=password)
-#         if AUO and AUO.is_active:
-#             login(request,AUO)
-#             request.session['username']=username
-#             return HttpResponseRedirect(reverse('home'))
-#         else:
-#             return HttpResponse('Invalid username or password') 
+        AUO=authenticate(username=username,password=password)
+        if AUO and AUO.is_active:
+            login(request,AUO)
+            request.session['username']=username
+            return HttpResponseRedirect(reverse('home'))
+        else:
+            return HttpResponse('Invalid username or password') 
         
-#     return render(request,'user_login.html')
-# @login_required
-# def user_logout(request):
-#     logout(request)
-#     return HttpResponseRedirect(reverse('home'))
+    return render(request,'user_login.html')
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('home'))
 
 # @login_required
 # def display_profile(request):
