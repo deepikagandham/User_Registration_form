@@ -4,20 +4,20 @@ from django.http import HttpResponse
 from app.forms import *
 from django.core.mail import send_mail
 
-# from django.http import HttpResponseRedirect
-# from django.contrib.auth import authenticate,login,logout
-# from django.urls import reverse
-# from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate,login,logout
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
-# def home(request):
+def home(request):
 
-#     if request.session.get('username'):
-#         username=request.session.get('username')
-#         d={'username':username}
-#         return render(request,'home.html',d)
+    if request.session.get('username'):
+        username=request.session.get('username')
+        d={'username':username}
+        return render(request,'home.html',d)
     
 
-#     return render(request,'home.html')
+    return render(request,'home.html')
 
 
 
@@ -68,6 +68,26 @@ def registration(request):
 #     logout(request)
 #     return HttpResponseRedirect(reverse('home'))
 
+# @login_required
+# def display_profile(request):
+#     username=request.session.get('username')
+#     UO=User.objects.get(username=username)
+#     PO=Profile.objects.get(username=UO)
+#     d={'UO':UO,'PO':PO}
+#     return render(request,'display_profile.html',d)
+
+# @login_required
+# def change_password(request):
+#     if request.method=='POST':
+#         pw=request.POST['pw']
+#         username=request.session.get('username')
+#         UO=User.objects.get(username=username)
+#         UO.set_password(pw)
+#         UO.save()
+#         return HttpResponse('Password is changed successfully')
+#     return render(request,'change_password.html')
+
+
 # def f_w(request):
 #     if request.method=='POST':
 #         un=request.POST['un']
@@ -82,5 +102,6 @@ def registration(request):
 #         else:
 #             return HttpResponse('username is not available in DB')
 #     return render(request,'f_w.html')
+
 
 
